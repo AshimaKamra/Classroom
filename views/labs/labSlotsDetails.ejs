@@ -1,0 +1,165 @@
+<%- include('../includes/head.ejs') %>
+<link rel="stylesheet" href="../../public/css/physicsLab.css">
+</head>
+<body>
+    <div class="header">
+    <div class="sidebar">
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="#" class="active">My Labs</a>
+        <a href="#">Contact</a>
+        <a href="#">Logout</a>
+      </div>
+      <span style="font-size:30px;cursor:pointer;color: #FFFFFF;" onclick="openNav()">&#9776; 
+    </span>
+    </div>
+    <div class="navbar-heading">
+        <div>Physics Lab</div>
+    </div>
+    <div class="navbar-profile">
+        <div class="profile-image"><img src="./profile-picture.png"/></div>
+    </div>
+    </div>
+
+    <div class="physicsLab-wrapper">
+        <div class="myLabs-action-component">
+            <div class="action-heading">
+                <div>
+                    <span class="main-heading">Slots</span>
+                    <br/>
+                   <span class="sub-heading">3 Slots Found</span> 
+                </div>
+            </div>
+            <dov class="action-btn">
+                <button class="btn" id="myBtn"><span>+</span> Create Slot</button>
+            </dov>
+        </div>
+        <div class="physicsLab-table">
+            <table class="lab-table">
+                <tr>
+                  <th>S. No</th>
+                  <th>Day</th>
+                  <th>Time</th>
+                  <th>Faculty</th>
+                  <th>Labs done</th>
+                </tr>
+                <tr class="data-row">
+                  <td>1.</td>
+                  <td>Monday</td>
+                  <td>10 am - 1 pm</td>
+                  <td>Dr. Amit Neogi</td>
+                  <td>2/10</td>
+                  <td>
+                    <div class="card-settings">
+                        <div class="icon">
+                            &#8942; 
+                        </div>
+                       
+                        <div class="dropdown-content">
+                         <a href="#">Edit</a>
+                         <a href="#">Delete</a>
+                        </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr class="data-row">
+                    <td>2.</td>
+                    <td>Tuesday</td>
+                    <td>10 am - 1 pm</td>
+                    <td>Dr. Amit Neogi</td>
+                    <td>2/10</td>
+                    <td>
+                      <div class="card-settings">
+                          <div class="icon">
+                              &#8942; 
+                          </div>
+                         
+                          <div class="dropdown-content">
+                           <a href="#">Edit</a>
+                           <a href="#">Delete</a>
+                          </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="data-row">
+                    <td>3.</td>
+                    <td>Wednesday</td>
+                    <td>10 am - 1 pm</td>
+                    <td>Dr. Amit Neogi</td>
+                    <td>2/10</td>
+                    <td>
+                      <div class="card-settings">
+                          <div class="icon">
+                              &#8942; 
+                          </div>
+                         
+                          <div class="dropdown-content">
+                           <a href="#">Edit</a>
+                           <a href="#">Delete</a>
+                          </div>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+        </div>
+    </div>
+    <div class="add-slot-form modal" id="myModal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <p>Create Slot</p>
+        <div class="form-content">
+          <div class="student-name">
+            <label for="studentName">Student name</label><br>
+            <input type="text" id="studentName" name="studentName" value="" placeholder="Enter Student Name" required><br>
+          </div>
+          <div class="instructor-name">
+            <label for="instructorName">Instructor name</label><br>
+            <input type="text" id="instructorName" name="instructorName" value="" placeholder="Enter Instructor Name" required>
+          </div>
+          <div class="day">
+            <label for="days">Day</label><br>
+            <select id="days" name="days">
+              <option value="monday">Monday</option>
+              <option value="tuesday">Tuesday</option>
+              <option value="wednesday">Wednesday</option>
+              <option value="thursday">Thursday</option>
+              <option value="friday">Friday</option>
+              <option value="saturday">Saturday</option>
+              <option value="sunday">Sunday</option>
+            </select>
+          </div>
+          <div class="start-end-time">
+            <div class="start-time">
+            <label for="startTime">Start Time</label><br>
+            <input type="time" id="startTime" name="startTime" value="" required>
+          </div>
+          <div class="end-time">
+            <label for="endTime">End Time</label><br>
+            <input type="time" id="endTime" name="endTime" value="" required>
+          </div>
+          </div>
+          <div class="form-submit-btn">
+            <div class="submit-btn">
+                <a href="#" id="createbtn">CREATE</a>
+            </div>
+            <div class="cancel-btn">
+              <a href="#" id="cancelbtn">CANCEL</a>
+            </div>
+          </div>
+        </div>
+      </div>    
+    </div>
+
+    <div class="add-slot-form modal" id="myModalToaster">
+      <div class="modal-content">
+        <span class="closeToaster">&times;</span>
+        <p><span><img src="./greenCircle.png"/></span>Slot Created</p>
+        <div class="form-content">
+          <div class="student-name">
+            <label for="studentName">Slot Code</label><br>
+            <input type="text" id="studentName" name="studentName" value="ABCDEF" readonly ><br>
+          </div>
+        </div>
+      </div>    
+    </div>
+    <!-- <%- include('../includes/end.ejs') ,{scriptURL:'../../js/physicsLab.js'}%> -->

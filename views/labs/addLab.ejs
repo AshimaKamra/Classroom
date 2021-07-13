@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title><%= pageTitle %></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #244D7C;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+
+        .sidenav a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #FFFFFF;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidenav a:hover {
+            color: #f1f1f1;
+        }
+
+        .sidenav .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+
+        .header {
+            background-color: #2F8FFF;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            padding: 20px;
+        }
+
+        .navbar-heading {
+            font-weight: 500;
+            font-size: 24px;
+            line-height: 28px;
+            display: flex;
+            align-items: center;
+            letter-spacing: 0.02em;
+            color: #FFFFFF;
+        }
+
+        .navbar-profile .profile-image img {
+            width: 32px;
+            height: 32px;
+        }
+
+
+        /* Modal Content */
+        .modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 30px;
+            border: 1px solid #fefefe;
+            width: 30%;
+            margin-top: 30px;
+        }
+
+        .modal-content p {
+            font-weight: 500;
+            font-size: 22px;
+            line-height: 26px;
+            color: rgba(0, 0, 0, 0.8);
+        }
+
+        .modal-content p img {
+            margin-right: 10px;
+            line-height: 26px;
+        }
+
+        /* The Close Button */
+        .close {
+            color: #aaaaaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .form-content {
+
+            width: 100%;
+        }
+
+
+        /* The Close Button */
+        .close-exp {
+            float: right;
+            font-size: 21px;
+            font-weight: 700;
+            line-height: 1;
+            color: #000;
+            text-shadow: 0 1px 0 #fff;
+            filter: alpha(opacity=20);
+            opacity: .2;
+        }
+
+        .close-exp:hover,
+        .close-exp:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .closeToaster {
+            float: right;
+            font-size: 21px;
+            font-weight: 700;
+            line-height: 1;
+            color: #000;
+            text-shadow: 0 1px 0 #fff;
+            opacity: .2;
+            cursor: pointer;
+        }
+
+        label {
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 19px;
+            color: rgba(0, 0, 0, 0.9);
+            margin: 10px auto;
+        }
+
+        input,
+        select {
+            width: 100%;
+            border: 1px solid rgba(0, 0, 0, 0.4);
+            border-radius: 3px;
+            font-weight: normal;
+            font-size: 14px;
+            line-height: 19px;
+            color: rgba(0, 0, 0, 0.8);
+            padding: 10px;
+
+        }
+
+        .creator-name,
+        .subject-name,
+        .subject-code,
+        .subject-slots,
+        .subject-total-students {
+            margin: 20px auto
+        }
+
+        .form-submit-btn {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            margin-top: 30px;
+        }
+
+        .form-submit-btn a {
+            color: #2F8FFF !important;
+            font-weight: 500;
+            font-size: 14px;
+            text-decoration: none !important;
+        }
+
+        .form-submit-btn a:hover {
+            color: #094385 !important;
+        }
+
+        .cancel-btn {
+            margin-left: 10px;
+        }
+
+        #createbtn,
+        #cancelbtn {
+            border: none !important;
+            background-color: white;
+            color: #094385;
+        }
+    </style>
+</head>
+
+<body>
+    <%- include('../includes/navigation.ejs') %>
+    <div class="add-slot-form " id="myModal">
+        <div class="modal-content">
+            <p>Create Lab</p>
+            <form class="lab-form" action="/admin/add-lab" method="POST">
+                <div class="form-content">
+                    <div class="subject-name">
+                        <label for="title">Subject Name</label><br>
+                        <input type="text" id="title" name="title" value=""
+                            placeholder="Enter Subject Name">
+                    </div>
+                    <div class="creator-name">
+                        <label for="teacher">Creator name</label><br>
+                        <input type="text" id="teacher" name="teacher" value=""
+                            placeholder="Enter Creator Name"><br>
+                    </div>
+                    <div class="subject-slots">
+                        <label for="slots">Slots</label><br>
+                        <input type="text" id="slots" name="slots" value=""
+                            placeholder="Enter Slots">
+                    </div>
+                    <div class="subject-total-students">
+                        <label for="totalStudents">Total Students</label><br>
+                        <input type="text" id="totalStudents" name="totalStudents" value=""
+                            placeholder="Enter Total Students">
+                    </div>
+                    <div class="subject-code">
+                        <label for="labCode">Subject Code</label><br>
+                        <input type="text" id="labCode" name="labCode" value=""
+                            placeholder="Enter Subject Code">
+                    </div>
+                    
+                    
+                    <div class="form-submit-btn">
+                        <div class="submit-btn">
+                            <button type="submit" id="createbtn">CREATE</button>
+                        </div>
+                        <!-- <div class="cancel-btn">
+                            <button id="cancelbtn" >CANCEL</button>
+                        </div> -->
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="add-slot-form modal" id="myModalToaster">
+        <div class="modal-content">
+            <span class="closeToaster">&times;</span>
+            <p><span><img src="../../public/images/greenCircle.png" /></span>Lab Created</p>
+            <div class="form-content">
+                <div class="student-name">
+                    <label for="studentName">Lab Code</label><br>
+                    <input type="text" id="studentName" name="studentName" value="ABCDEF" readonly><br>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+    </script>
+</body>
+
+</html>

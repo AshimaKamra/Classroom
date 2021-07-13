@@ -1,0 +1,234 @@
+/* .landing-wrapper .main-wrapper {
+    min-height: calc(100vh - 60px);
+  } */
+.landing-wrapper
+{
+    font-family: Roboto;
+    font-style: normal;
+}
+  .website-intro-wrapper {
+    width: 100%;
+    /* height: 100%; */
+    /* min-height: 640px; */
+    display: flex;
+    flex-direction: row;
+    align-items: initial;
+    justify-content: center;
+    background-color: #ffffff;
+  }
+  .landing-banner-wrapper
+  {
+    background-image: url(./loginBanner.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    min-height: 100vh;
+  }
+  .website-intro-wrapper > * {
+    width: 50%;
+  }
+.form-logo-container .logo-container,
+.form-logo-container .form-container {
+
+  width: auto;
+  margin-right: 16px;
+}
+.form-logo-container .title
+{
+    font-weight: bold;
+font-size: 28px;
+line-height: 37px;
+text-align: center;
+
+color: rgba(0, 0, 0, 0.8);
+
+
+}
+.form-container 
+{
+    margin: 0px 180px 30px 180px;
+}
+.form-wrapper-box .form-control {
+    padding: 9px;
+    height: 36px;
+    line-height: 36px;
+    border: 1px solid #E8E8E8;
+    box-sizing: border-box;
+    border-radius: 5px;
+    box-shadow: none;
+  }
+  .form-wrapper-box .form-control:focus,
+  .form-wrapper-box .form-control:active,
+  .form-wrapper-box .form-control:hover {
+    outline: none;
+    box-shadow: none;
+  }
+  .form-wrapper-box .form-group {
+    margin-bottom: 12px;
+  }
+  .form-wrapper-box  label {
+    margin-bottom: 8px;
+    font-weight: normal;
+font-size: 16px;
+line-height: 19px;
+color: rgba(0, 0, 0, 0.5);
+
+  }
+  .form-wrapper-box .form-group label span {
+    color: red;
+  }
+  .form-wrapper-box .form-control.formError {
+    border: 1px solid red !important;
+    background: #f1e5e5;
+  }
+  .form-logo-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    min-height: 140px;
+    margin-bottom: 60px;
+    /* margin-top: 40px; */
+  }
+  
+  .form-logo-container .logo-container {
+    text-align: center;
+  }
+  .form-logo-container .logo-container img {
+   
+    width: 64px;
+    height:64px;
+    
+  }
+  .form-header .welcome-heading
+  {
+   
+font-weight: normal;
+font-size: 16px;
+line-height: 19px;
+color: rgba(0, 0, 0, 0.8);
+  }
+  .form-header .login-heading
+  {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 35px;
+    color: #1A202C;
+    margin:2px 0px 24px 0px;
+  }
+ 
+
+  .submit-button {
+    background-color: #2F8FFF !important;
+    border-radius: 3px;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: 700 !important;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 32px;
+    border: none;
+  }
+  .submit-button:disabled {
+    pointer-events: none;
+    opacity: 0.5;
+  }
+  .submit-button .spinner-border {
+    width: 20px !important;
+    height: 20px !important;
+  }
+.seperation
+{
+    display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+}
+.seperation .seperation-content
+{
+
+/* text-align: center; */
+/* margin-top: -12px; */
+color: rgba(0, 0, 0, 0.5);
+font-size: 16px;
+padding: 0px 16px;
+
+}
+.seperation .horizontal-line
+{
+    border-top: 1px solid rgba(0, 0, 0, 0.5) !important;
+    width: 100%;
+    margin-top: 12px !important;
+}
+  .navigation-wrapper
+  {
+
+border: 1px solid #2F8FFF;
+box-sizing: border-box;
+border-radius: 5px;
+padding: 10px;
+display: flex;
+flex-direction: row;
+justify-content: center;
+margin-top: 32px;
+  }
+
+  .navigation-wrapper .navigation-content a
+  {
+    font-weight: bold;
+    font-size: 16px; 
+    color: #2F8FFF;
+  }
+  .navigation-wrapper .google-icon
+{
+    margin-right: 16px;
+}
+.navigation-wrapper .google-icon img{
+    width :20px;
+    height :20px
+}
+  .form-footer {
+    margin-top: 30px;
+    font-weight: normal;
+font-size: 16px;
+text-align: center;
+line-height: 19px;
+color: rgba(0, 0, 0, 0.8);
+  }
+  .form-footer a {
+    color: #2F8FFF;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  @media (max-width: 1274px) 
+  {
+    .form-container 
+    {
+        margin: 0px 120px 30px 120px;
+    }
+  }
+  @media (max-width: 900px) 
+  {
+    .form-container 
+    {
+        margin: 0px 50px 30px 50px;
+    }
+  }
+  @media (max-width: 500px) 
+  {
+    .website-intro-wrapper > *
+    {
+        width: 100%;
+    }
+    .website-intro-wrapper
+    {
+        flex-direction: column;
+    }
+    .landing-banner-wrapper
+    {
+        min-height: 50vh;
+    }
+  }

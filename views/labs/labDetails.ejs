@@ -1,0 +1,262 @@
+<%- include('../includes/head.ejs') %>
+<link rel="stylesheet" href="../../public/css/physicsLabDetails.css">
+</head>
+<body>
+    <div class="header">
+    <div class="sidebar">
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="#" class="active">My Labs</a>
+        <a href="#">Contact</a>
+        <a href="#">Logout</a>
+      </div>
+      <span style="font-size:30px;cursor:pointer;color: #FFFFFF;" onclick="openNav()">&#9776; 
+    </span>
+    </div>
+    <div class="navbar-heading">
+        <div>Physics Lab</div>
+    </div>
+    <div class="navbar-profile">
+        <div class="profile-image"><img src="./profile-picture.png"/></div>
+    </div>
+    </div>
+
+    <div class="physicsLab-wrapper">
+        <div class="myLabs-action-component">
+            <div class="action-heading">
+                <div>
+                    <span class="main-heading">Slot-1</span>
+                    
+                </div>
+            </div>
+            <dov class="action-btn">
+                <button class="btn more-btn"> More<span><svg xmlns="http://www.w3.org/2000/svg" width="16"  fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+                </svg></span>
+                <div class="dropdown-content">
+                  <a href="#">Edit</a>
+                  <a href="#">Delete</a>
+                 </div>
+                </button>
+                <button class="btn" id="myBtn" ><span><svg xmlns="http://www.w3.org/2000/svg" width="20" height="25" fill="currentColor" class="bi bi-play" viewBox="0 0 16 16">
+                  <path d="M10.804 8 5 4.633v6.734L10.804 8zm.792-.696a.802.802 0 0 1 0 1.392l-6.363 3.692C4.713 12.69 4 12.345 4 11.692V4.308c0-.653.713-.998 1.233-.696l6.363 3.692z"/>
+                </svg></span> Start Lab</button>
+                
+            </dov>
+        </div>
+       <div class="physics-lab-details">
+         <div class="information">
+         <div class="info-heading">
+          Information
+         </div>
+         <hr/>
+         <div class="info-wrapper">
+         <div class="info-date-time">
+           <p class="sub-headings">Day & Time</p>
+           <p class="info-data">Monday & 10am - 1 pm</p>
+         </div>
+         <div class="info-faculty">
+           <p class="sub-headings">Faculty</p>
+           <p class="info-data">Dr. Amit Neogi</p>
+         </div>
+         <div class="info-lab-incharge">
+           <p class="sub-headings">Lab Incharge</p>
+           <p class="info-data">XYZ</p>
+         </div>
+         <div class="info-people">
+           <p class="sub-headings">People</p>
+           <p class="info-data">64</p>
+         </div>
+         <div class="info-slot-code">
+           <p class="sub-headings">Slot Code</p>
+           <p class="info-data">ABCDEF</p>
+         </div>
+        </div>
+         </div>
+         <div class="experiments">
+           
+          <div class="exp-heading">
+            <div class="experiments-heading">
+              Experiments
+            </div>
+            <div class="exp-settings">
+             <div class="exp-icons">
+               <div class="exp-add" id="exp-add-btn"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+                <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+              </svg></div>
+               <div class="exp-delete"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+              </svg></div>
+             </div>
+            </div>
+          </div>
+          <hr/>
+          <div class="exp-wrapper">
+          <div class="exp-list-items">
+            <div class="list-item-heading">
+             <div class="exp-number">Experiment 1</div>
+             <div class="exp-name">Name of the experiment</div>
+            </div>
+            <div class="list-item-forward">
+              <i class="fa fa-angle-right" style="font-size:30px"></i>
+            </div>
+          </div>
+          <div class="exp-list-items">
+            <div class="list-item-heading">
+             <div class="exp-number">Experiment 2</div>
+             <div class="exp-name">Name of the experiment</div>
+            </div>
+            <div class="list-item-forward">
+              <i class="fa fa-angle-right" style="font-size:30px"></i>
+            </div>
+          </div>
+          <div class="exp-list-items">
+            <div class="list-item-heading">
+             <div class="exp-number">Experiment 3</div>
+             <div class="exp-name">Name of the experiment</div>
+            </div>
+            <div class="list-item-forward">
+              <i class="fa fa-angle-right" style="font-size:30px"></i>
+            </div>
+          </div>
+          <div class="exp-list-items">
+            <div class="list-item-heading">
+             <div class="exp-number">Experiment 4</div>
+             <div class="exp-name">Name of the experiment</div>
+            </div>
+            <div class="list-item-forward">
+              <i class="fa fa-angle-right" style="font-size:30px"></i>
+            </div>
+          </div>
+          <div class="exp-list-items">
+            <div class="list-item-heading">
+             <div class="exp-number">Experiment 5</div>
+             <div class="exp-name">Name of the experiment</div>
+            </div>
+            <div class="list-item-forward">
+              <i class="fa fa-angle-right" style="font-size:30px"></i>
+            </div>
+          </div>
+       </div>
+         </div>
+         <div class="people">
+          <div class="exp-heading">
+            <div class="experiments-heading">
+              People
+            </div>
+            <div class="exp-settings">
+             <div class="exp-icons">
+               <div class="exp-add"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+                <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+              </svg></div>
+               <div class="exp-delete"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+              </svg></div>
+             </div>
+            </div>
+          </div>
+          <hr/>
+
+          <div class="people-list-items">
+            <div class="people-list">
+              <ul class="list-items">
+                <li class="list-heading">Faculty
+                  <ul class="sub-list-item">
+                    <li><span><img src="./circle.png"/></span><span class="sub-list-content">XYZ name</span></li>
+                  </ul>
+                </li>
+              </ul>
+              <ul class="list-items">
+                <li class="list-heading">Lab Incharge
+                  <ul class="sub-list-item">
+                    <li><span><img src="./circle2.png"/></span><span class="sub-list-content">XYZ name</span></li>
+                  </ul>
+                </li>
+              </ul>
+              <ul class="list-items">
+                <li class="list-heading">Technical Assistants
+                  <ul class="sub-list-item">
+                    <li><span><img src="./circle3.png"/></span><span class="sub-list-content">XYZ name</span></li>
+                    <li><span><img src="./circle3.png"/></span><span class="sub-list-content">XYZ name</span></li>
+                  </ul>
+                </li>
+              </ul>
+              <ul class="list-items">
+                <li class="list-heading">Students <span class="students-number">60 students</span>
+                  <ul class="sub-list-item">
+                    <li><span><img src="./circle4.png"/></span><span class="sub-list-content">XYZ name</span></li>
+                  </ul>
+                </li>
+              </ul>
+              <ul class="list-items">
+                <li class="list-heading">Students <span class="students-number">60 students</span>
+                  <ul class="sub-list-item">
+                    <li><span><img src="./circle2.png"/></span><span class="sub-list-content">XYZ name</span></li>
+                  </ul>
+                </li>
+              </ul>
+              <ul class="list-items">
+                <li class="list-heading">Students <span class="students-number">60 students</span>
+                  <ul class="sub-list-item">
+                    <li><span><img src="./circle3.png"/></span><span class="sub-list-content">XYZ name</span></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+         </div>
+       </div>
+    </div>
+
+    <div class="add-experiment-form modal" id="myModalExp">
+      <div class="modal-content">
+        <span class="close-exp">&times;</span>
+        <p>Add Experiment</p>
+        <div class="form-content">
+          <div class="exp-index">
+            <label for="expIndex">Experiment Index</label><br>
+            <input type="text" id="expIndex" name="expIndex" value="" placeholder="Enter Experiment Index"><br>
+          </div>
+          <div class="exper-name">
+            <label for="expName">Experiment Name</label><br>
+            <input type="text" id="expName" name="expName" value="" placeholder="Enter Experiment Name">
+          </div>
+          <div class="file-name">
+            <label for="fileName" >Add File Link</label><br>
+            <input type="text" id="fileName" name="fileName" value="" placeholder="Google Drive’s Link">
+          </div>
+          <div class="max-marks">
+            <label for="maxMarks">Maximum marks</label><br>
+            <input type="text" id="maxMarks" name="maxMarks" value="" placeholder="Google Drive’s Link">
+          </div>
+          <div class="term">
+            <div class="mid-term">
+              <input type="radio" id="midTerm" name="midTerm" value="Before Midterm">
+              <label for="midTerm">Before Midterm</label>
+          </div>
+          <div class="end-term">
+            <input type="radio" id="midTerm" name="midTerm" value="After Midterm">
+            <label for="midTerm">After Midterm</label>
+          </div>
+          </div>
+          <div class="form-submit-btn">
+            <div class="submit-btn">
+                <a href="#" id="createbtn">ADD</a>
+            </div>
+            <div class="cancel-btn">
+              <a href="#" id="cancelbtn">CANCEL</a>
+            </div>
+          </div>
+        </div>
+      </div>    
+    </div>
+    <div class="add-slot-form modal" id="myModalToaster">
+      <div class="modal-content exp-toaster-content">
+        <span class="closeToaster">&times;</span>
+        <p class="experiment-sucessfull"><span><img src="./check.png"/></span>Experiment added successfully</p>
+      </div>    
+    </div>
+</body>
+</html>

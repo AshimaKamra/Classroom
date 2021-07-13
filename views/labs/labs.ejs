@@ -1,0 +1,269 @@
+<%- include('../includes/head.ejs') %>
+<style>
+  .sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #244D7C;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+  }
+
+  .sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #FFFFFF;
+    display: block;
+    transition: 0.3s;
+  }
+
+  .sidenav a:hover {
+    color: #f1f1f1;
+  }
+
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+
+  .header {
+    background-color: #2F8FFF;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px;
+  }
+
+  .navbar-heading {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 28px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.02em;
+    color: #FFFFFF;
+  }
+
+  .navbar-profile .profile-image img {
+    width: 32px;
+    height: 32px;
+  }
+
+  .myLabs-action-component {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px;
+
+  }
+
+  .myLabs-action-component .action-heading {
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 26px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.02em;
+    color: #000000;
+  }
+
+  .myLabs-action-component .btn {
+
+    background: #2F8FFF;
+    border-radius: 8px;
+    align-items: center;
+    letter-spacing: 0.02em;
+    width: 169px;
+    font-size: 18px;
+    color: #FFFFFF
+  }
+
+  .myLabs-action-component .btn:hover {
+    color: #FFFFFF;
+    background: #244D7C
+  }
+
+  .myLabs-status-cards {
+    /* display: flex; */
+    flex-direction: row;
+    padding: 20px;
+  }
+
+  .myLabs-status-cards .card {
+    margin-right: 40px;
+    margin-top: 20px;
+    background: #FFFFFF;
+    box-shadow: -1px -1px 6px rgba(0, 0, 0, 0.16), 1px 1px 6px rgba(0, 0, 0, 0.16);
+    border-radius: 6px;
+    width: 318px;
+    height: 200px;
+  }
+
+  .card-heading {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px 20px 16px 20px;
+  }
+
+  .card-heading .card-title {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 28px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.02em;
+
+    color: #000000;
+
+  }
+
+  .card-heading .card-settings {
+    color: #000000;
+    font-weight: 500;
+    font-size: 18px;
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    padding: 12px 16px;
+    z-index: 1;
+  }
+
+  .dropdown-content a {
+    font-size: 15px;
+    margin: 10px 0px;
+    text-decoration: none !important;
+  }
+
+  .dropdown-content a:hover {
+    color: #244D7C;
+  }
+
+  .card-settings:hover .dropdown-content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card-faculty-name {
+    padding: 0px 20px 5px 20px;
+    font-size: 12px;
+    line-height: 21px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.01em;
+    color: rgba(0, 0, 0, 0.9);
+  }
+
+  .card-other-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 50px 20px 6px 20px;
+  }
+
+  .card-other-info .slots {
+    align-items: center;
+    letter-spacing: 0.01em;
+    color: rgba(0, 0, 0, 0.7);
+    font-size: 15px;
+    line-height: 21px;
+  }
+  .action-btn a{
+    color: white !important;
+  }
+  @media screen and (max-height: 450px) {
+    .sidenav {
+      padding-top: 15px;
+    }
+
+    .sidenav a {
+      font-size: 18px;
+    }
+  }
+</style>
+</head>
+
+<body>
+
+  <%- include('../includes/navigation.ejs') %>
+
+  <div class="myLabs-wrapper">
+    <div class="myLabs-action-component">
+      <div class="action-heading">
+        <div>4 Labs</div>
+      </div>
+      <dov class="action-btn">
+        <button class="btn" id="myBtn" ><span>+</span><a href="/admin/add-lab">Create Lab</a></button>
+      </dov>
+    </div>
+    <% if (labs.length > 0) { %>
+    <div>
+      <div class="myLabs-status-cards">
+        <% for (let lab of labs) { %>
+        
+        <div class="col-sm-3">
+        <div class="card">
+          <div class="card-body">
+            <div class="card-heading">
+              <div class="card-title"><%= lab.title %></div>
+              <div class="card-settings">
+                &#8942;
+                <div class="dropdown-content">
+                  <a href="#">Edit</a>
+                  <a href="#">Delete</a>
+                </div>
+              </div>
+            </div>
+            <div class="card-faculty-name">
+              <p>Faculty - <%= lab.teacher %></p>
+            </div>
+            <div class="card-other-info">
+              <div class="slots">
+                <%= lab.slots %> Slots
+              </div>
+              <div class="slots-number">
+                <div class="slot-circle">
+                  <%= lab.totalStudents %> Students
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+   
+        <% } %>
+      </div>
+    </div>
+    <% } else { %>
+    <h1>No Products Found!</h1>
+    <% } %>
+  </div>
+ 
+  <script>
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "250px";
+    }
+
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+    }
+  </script>
+</body>
+
+</html>

@@ -8,13 +8,15 @@ const router = express.Router();
 
 router.get('/', labsController.getLabs);
 
-router.get('/labs', labsController.getLabs);
-
 // router.get('/', labsController.getIndex);
+router.get('/labs', labsController.getLabs);
 router.post('/add-lab', labsController.postAddLab);
+
 router.get('/add-lab', labsController.getAddLab);
 
+router.get('/edit-lab/:labId', labsController.getEditLab);
 
+router.post('/edit-lab', labsController.postEditLab);
 // router.get('/labs/:labId', labsController.getLab);
 
 

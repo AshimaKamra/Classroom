@@ -206,7 +206,7 @@
   <div class="myLabs-wrapper">
     <div class="myLabs-action-component">
       <div class="action-heading">
-        <div>4 Labs</div>
+        <div><%=labs.length%> Labs</div>
       </div>
       <dov class="action-btn">
         <button class="btn" id="myBtn" ><span>+</span><a href="/admin/add-lab">Create Lab</a></button>
@@ -216,7 +216,6 @@
     <div>
       <div class="myLabs-status-cards">
         <% for (let lab of labs) { %>
-        
         <div class="col-sm-3">
         <div class="card">
           <div class="card-body">
@@ -225,7 +224,7 @@
               <div class="card-settings">
                 &#8942;
                 <div class="dropdown-content">
-                  <a href="#">Edit</a>
+                  <a href="/admin/edit-lab/<%= lab.id %>?edit=true">Edit</a>
                   <a href="#">Delete</a>
                 </div>
               </div>
@@ -246,12 +245,11 @@
           </div>
         </div>
       </div>
-   
         <% } %>
       </div>
     </div>
     <% } else { %>
-    <h1>No Products Found!</h1>
+    <h1>No Labs Found!</h1>
     <% } %>
   </div>
  

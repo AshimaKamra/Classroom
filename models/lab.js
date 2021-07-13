@@ -11,7 +11,6 @@ module.exports = class Lab {
   }
 
   save() {
-
     return db.execute(
       'INSERT INTO labs (title, teacher, slots, totalStudents, labCode) VALUES (?, ?, ?, ?, ?)',
       [this.title, this.teacher, this.slots, this.totalStudents, this.labCode]
@@ -25,6 +24,6 @@ module.exports = class Lab {
   }
 
   static findById(id) {
-    return db.execute('SELECT * FROM labs WHERE products.id = ?', [id]);
+    return db.execute('SELECT * FROM labs WHERE labs.id = ?', [id]);
   }
 };

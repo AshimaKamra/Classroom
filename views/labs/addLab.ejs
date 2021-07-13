@@ -203,46 +203,50 @@
 </head>
 
 <body>
+
     <%- include('../includes/navigation.ejs') %>
     <div class="add-slot-form " id="myModal">
         <div class="modal-content">
-            <p>Create Lab</p>
-            <form class="lab-form" action="/admin/add-lab" method="POST">
+            <p><% if (editing) { %>Edit Lab <% } else { %>Create Lab <% } %></p>
+            <form class="lab-form" action="/admin/<% if (editing) { %>edit-lab<% } else { %>add-lab<% } %>"
+                method="POST">
                 <div class="form-content">
                     <div class="subject-name">
                         <label for="title">Subject Name</label><br>
-                        <input type="text" id="title" name="title" value=""
+                        <input type="text" id="title" name="title" 
+                        value="<% if (editing) { %><%= labs.title %><% } %>"
                             placeholder="Enter Subject Name">
                     </div>
                     <div class="creator-name">
                         <label for="teacher">Creator name</label><br>
-                        <input type="text" id="teacher" name="teacher" value=""
-                            placeholder="Enter Creator Name"><br>
+                        <input type="text" id="teacher" name="teacher"
+                            value="<% if (editing) { %><%= labs.teacher %><% } %>" placeholder="Enter Creator Name"><br>
                     </div>
                     <div class="subject-slots">
                         <label for="slots">Slots</label><br>
-                        <input type="text" id="slots" name="slots" value=""
+                        <input type="text" id="slots" name="slots" value="<% if (editing) { %><%= labs.slots %><% } %>"
                             placeholder="Enter Slots">
                     </div>
                     <div class="subject-total-students">
                         <label for="totalStudents">Total Students</label><br>
-                        <input type="text" id="totalStudents" name="totalStudents" value=""
+                        <input type="text" id="totalStudents" name="totalStudents"
+                            value="<% if (editing) { %><%= labs.totalStudents %><% } %>"
                             placeholder="Enter Total Students">
                     </div>
                     <div class="subject-code">
                         <label for="labCode">Subject Code</label><br>
-                        <input type="text" id="labCode" name="labCode" value=""
-                            placeholder="Enter Subject Code">
+                        <input type="text" id="labCode" name="labCode"
+                            value="<% if (editing) { %><%= labs.labCode %><% } %>" placeholder="Enter Subject Code">
                     </div>
-                    
-                    
+                    <% if (editing) { %>
+                    <input type="hidden" value="<%= labs.id %>" name="labId">
+                    <% } %>
+
                     <div class="form-submit-btn">
                         <div class="submit-btn">
-                            <button type="submit" id="createbtn">CREATE</button>
+                            <button type="submit"
+                                id="createbtn"><% if (editing) { %>UPDATE<% } else { %>CREATE<% } %></button>
                         </div>
-                        <!-- <div class="cancel-btn">
-                            <button id="cancelbtn" >CANCEL</button>
-                        </div> -->
                     </div>
                 </div>
             </form>

@@ -19,5 +19,6 @@ router.get('/edit-lab/:labId', labsController.getEditLab);
 router.post('/edit-lab', labsController.postEditLab);
 // router.get('/labs/:labId', labsController.getLab);
 
+router.get('/delete-lab/:labId', labsController.postDeleteLab);
 
 module.exports = router;

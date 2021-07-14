@@ -1,11 +1,10 @@
 const Lab= require('../models/lab');
 
 exports.getLabs = (req, res, next) => {
-  Lab.fetchAll()
-    .then(([rows, fieldData]) => {
-      console.log("rows",rows);
+    Lab.findAll()
+    .then(labs => {
       res.render('labs/labs', {
-        labs: rows,
+        labs: labs,
         pageTitle: 'All Labs',
         path: '/admin/labs'
       });
@@ -28,20 +27,26 @@ exports.postAddLab = (req, res, next) => {
   const slots = req.body.slots;
   const totalStudents = req.body.totalStudents;
   const labCode = req.body.labCode;
-  const lab = new Lab(null, title, teacher, slots, totalStudents,labCode);
-  lab
-    .save()
-    .then(() => {
+  Lab.create({
+    title: title,
+    teacher: teacher,
+    slots: slots,
+    totalStudents: totalStudents,
+    labCode:labCode
+  })
+    .then(result => {
+      // console.log(result);
       res.redirect('/admin/labs');
     })
-    .catch(err => console.log(err));
+    .catch(err => {
+      console.log(err);
+    });
 };
 
 exports.getLab = (req, res, next) => {
   const labId = req.params.labId;
-  Lab.findById(labId)
+  Lab.findByPk(labId)
     .then(([lab]) => {
-
       res.render('lab/lab-detail', {
         lab: lab[0],
         pageTitle: lab.title,
@@ -68,19 +73,17 @@ exports.getEditLab = (req, res, next) => {
   if (!editMode) {
     return res.redirect('/');
   }
-
-  const labId = req.params.labId;
-  Lab.findById(labId)
-    .then(([rows, fieldData]) => {
-      if (!rows) {
-        return res.redirect('/admin/labs');
+  const labId = req.params.labId;  
+  Lab.findByPk(labId)
+    .then(lab => {
+      if (!lab) {
+        return res.redirect('/');
       }
-      console.log("data",rows)
       res.render('labs/addLab', {
-        labs: rows,
         pageTitle: 'Edit Lab',
         path: '/admin/edit-lab',
-        editing: editMode
+        editing: editMode,
+        labs: lab
       });
     })
     .catch(err => console.log(err));
@@ -88,26 +91,38 @@ exports.getEditLab = (req, res, next) => {
 
 exports.postEditLab = (req, res, next) => {
   console.log("edit lab",req.body);
-  const labId = req.body.id;
+  const labId = req.body.labId;
   const updatedTitle = req.body.title;
   const updatedTeacher = req.body.teacher;
   const updatedSlots = req.body.slots;
   const updatedTotalStudents = req.body.totalStudents;
   const updatedLabCode = req.body.labCode;
-  const updatedLab = new Lab(
-    labId,
-    updatedTitle,
-    updatedTeacher,
-    updatedSlots,
-    updatedTotalStudents,
-    updatedLabCode
-  );
-  updatedLab.save();
-  res.redirect('/admin/labs');
+  Lab.findByPk(labId)
+  .then(lab => {
+    console.log("updated Title",lab)
+    lab.title = updatedTitle;
+    lab.teacher = updatedTeacher;
+    lab.slots = updatedSlots;
+    lab.totalStudents = updatedTotalStudents;
+    lab.labCode = updatedLabCode;
+    return lab.save();
+  })
+  .then(result => {
+    console.log('UPDATED LAB!');
+    res.redirect('/admin/labs');
+  })
+  .catch(err => console.log(err));
 };
 
-// exports.postDeleteProduct = (req, res, next) => {
-//   const prodId = req.body.productId;
-//   Product.deleteById(prodId);
-//   res.redirect('/admin/products');
-// };
+exports.postDeleteLab = (req, res, next) => {
+  const labId = req.params.labId;
+  Lab.findByPk(labId)
+    .then(lab => {
+      return lab.destroy();
+    })
+    .then(result => {
+      console.log('DESTROYED LAB');
+      res.redirect('/admin/labs');
+    })
+    .catch(err => console.log(err));
+};
